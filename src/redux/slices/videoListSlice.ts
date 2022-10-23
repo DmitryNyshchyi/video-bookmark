@@ -22,7 +22,52 @@ export interface VideoListState {
 }
 
 const initialState: VideoListState = {
-  videoList: [],
+  videoList: [
+    {
+      id: nanoid(),
+      title: 'Big Buck Bunny',
+      videoSrc:
+        'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+      timeIntervals: [
+        {
+          id: nanoid(),
+          time: '03:30',
+          description:
+            'Big Buck Bunny tells the story of a giant rabbit with a heart bigger than himself',
+        },
+      ],
+      description:
+        'Big Buck Bunny tells the story of a giant rabbit with a heart bigger than himself. When one sunny day three rodents rudely harass him, something snaps... ',
+    },
+    {
+      id: nanoid(),
+      title: 'For Bigger Blazes',
+      videoSrc:
+        'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
+      timeIntervals: [
+        {
+          id: nanoid(),
+          time: '00:40',
+          description: 'The first Blender Open Movie from 2006',
+        },
+      ],
+    },
+    {
+      id: nanoid(),
+      title: 'Sintel. By Blender Foundation',
+      videoSrc:
+        'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4',
+      timeIntervals: [
+        {
+          id: nanoid(),
+          time: '01:10',
+          description: 'Sintel is an independently produced short film',
+        },
+      ],
+      description:
+        'Big Buck Bunny tells the story of a giant rabbit with a heart bigger than himself. When one sunny day three rodents rudely harass him, something snaps... ',
+    },
+  ],
 };
 
 export const videoListSlice = createSlice({
@@ -30,12 +75,10 @@ export const videoListSlice = createSlice({
   initialState,
   reducers: {
     addItem(state, action) {
-      const newItem = {
-        id: nanoid(),
-        ...action.payload,
-      };
-
-      state.videoList = [...state.videoList, newItem];
+      state.videoList = [
+        ...state.videoList,
+        { id: nanoid(), ...action.payload },
+      ];
     },
     updateItem(state, action) {
       const index = state.videoList.findIndex(

@@ -5,16 +5,12 @@ import * as yup from 'yup';
 
 import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { addItem, VideoItemProps } from '../../redux/slices/videoListSlice';
-import { URL_REGEX } from '../../utils';
 import Heading from '../heading/Heading';
 import AddNewItemForm from './components/AddNewItemForm';
 
 const validationSchema = yup.object().shape({
   title: yup.string().required('Title is a required'),
-  videoSrc: yup
-    .string()
-    .matches(URL_REGEX, 'Please enter correct url')
-    .required('Video link is a required'),
+  videoSrc: yup.string().required('Video link is a required'),
 });
 
 export type VideoItemValuesProps = VideoItemProps;
@@ -28,12 +24,12 @@ const AddNewItem = () => {
     timeIntervals: [],
   };
 
-  const handleSubmit = async (
+  const handleSubmit = (
     values: VideoItemValuesProps,
     { resetForm }: FormikHelpers<VideoItemValuesProps>,
   ) => {
-    await dispatch(addItem(values));
-    await resetForm();
+    dispatch(addItem(values));
+    resetForm();
   };
 
   return (
