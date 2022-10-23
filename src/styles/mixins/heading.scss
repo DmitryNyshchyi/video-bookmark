@@ -4,10 +4,15 @@
 @mixin heading() {
   .heading {
     font-weight: 600;
-    font-size: 26px;
-    line-height: 42px;
+    font-size: 22px;
+    line-height: 34px;
     color: $primary;
     margin: 0;
+
+    @include tabletAndDesktop {
+      font-size: 26px;
+      line-height: 42px;
+    }
 
     @include desktop {
       font-size: 32px;

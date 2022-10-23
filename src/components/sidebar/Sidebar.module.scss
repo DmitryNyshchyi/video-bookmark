@@ -6,20 +6,18 @@
   min-height: 100vh;
   background: $third;
   position: fixed;
-  left: -90%;
+  left: calc(-100% + 40px);
   top: 0;
-  min-width: 350px;
   width: 100%;
   padding: 20px 40px 20px 20px;
   z-index: 1;
   cursor: pointer;
-  overflow-y: auto;
 
   .button {
     @include flex(row, center, center);
     position: absolute;
-    right: calc(5% - 12px);
-    top: 15px;
+    right: 7px;
+    top: 10px;
     font-size: 24px;
     line-height: 1;
     color: $white;
@@ -28,16 +26,17 @@
     width: 24px;
     height: 24px;
     cursor: pointer;
+    font-weight: 600;
   }
 
-  @include desktop {
+  @include tabletAndDesktop {
     width: 60%;
-    padding: 40px 5%;
-    left: -55%;
+    padding: 40px max(5%, 60px);
+    left: calc(-60% + 60px);
 
     .button {
-      right: calc(5% - 28px);
-      top: 40px;
+      right: calc(max(5%, 60px) - 50px);
+      top: 15px;
       font-size: 36px;
       width: 40px;
       height: 40px;
@@ -48,17 +47,18 @@
     left: 0;
     cursor: unset;
     padding: 20px;
+    overflow-y: auto;
 
     .button {
       transform: rotate(45deg);
-      right: calc(5% - 10px);
+      right: 10px;
     }
 
-    @include desktop {
+    @include tabletAndDesktop {
       padding: 40px 5%;
 
       .button {
-        right: calc(5% - 22px);
+        right: calc(max(5%, 60px) - 50px);
       }
     }
   }

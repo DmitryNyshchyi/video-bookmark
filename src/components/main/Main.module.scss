@@ -1,10 +1,10 @@
 @import "src/styles";
 
 .wrapper {
-  padding: 20px 20px 20px calc(7.5% + 20px);
+  padding: 20px 20px 20px 60px;
   width: 100%;
 
-  @include desktop {
-    padding: 40px 40px 40px calc(5% + 40px);
+  @include tabletAndDesktop {
+    padding: 40px 40px 40px 100px;
   }
 }

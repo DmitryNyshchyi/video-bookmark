@@ -1,0 +1,24 @@
+@import "src/styles";
+
+.wrapper {
+  @include flex(column);
+  width: 100%;
+  gap: 25px;
+
+  @include tabletAndDesktop {
+    gap: 50px;
+  }
+
+  .loading, .notFound {
+    @include flex(row, center, center);
+    padding: 25vh 0;
+    width: 100%;
+    color: $secondary;
+    font-size: 16px;
+    font-weight: 600;
+
+    @include tabletAndDesktop {
+      font-size: 20px;
+    }
+  }
+}

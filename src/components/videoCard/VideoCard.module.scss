@@ -1,0 +1,38 @@
+@import "src/styles";
+
+.wrapper {
+  @include flex(column);
+  width: 100%;
+  gap: 5px;
+
+  @include desktop {
+    gap: 15px;
+  }
+
+  .rowWrapper {
+    @include flex(column);
+
+    p {
+      font-size: 14px;
+      line-height: 18px;
+      color: $secondary;
+    }
+
+    @include tabletAndDesktop {
+      gap: 30px;
+
+      p {
+        font-size: 16px;
+        line-height: 20px;
+      }
+    }
+
+    @include desktop {
+      @include flex(row);
+
+      video {
+        width: 50%;
+      }
+    }
+  }
+}

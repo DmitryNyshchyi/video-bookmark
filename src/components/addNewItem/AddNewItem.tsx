@@ -34,7 +34,9 @@ const AddNewItem = () => {
 
   return (
     <section>
-      <Heading level="h2">Add new video bookmark</Heading>
+      <Heading level="h2" margin="0 0 15px">
+        Add new video bookmark
+      </Heading>
 
       <Formik
         enableReinitialize
