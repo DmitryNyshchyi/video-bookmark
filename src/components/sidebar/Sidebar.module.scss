@@ -1,0 +1,65 @@
+@import "src/styles";
+
+.wrapper {
+  @include flex(column);
+  height: 100vh;
+  min-height: 100vh;
+  background: $third;
+  position: fixed;
+  left: -90%;
+  top: 0;
+  min-width: 350px;
+  width: 100%;
+  padding: 20px 40px 20px 20px;
+  z-index: 1;
+  cursor: pointer;
+  overflow-y: auto;
+
+  .button {
+    @include flex(row, center, center);
+    position: absolute;
+    right: calc(5% - 12px);
+    top: 15px;
+    font-size: 24px;
+    line-height: 1;
+    color: $white;
+    border: unset;
+    background: transparent;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+  }
+
+  @include desktop {
+    width: 60%;
+    padding: 40px 5%;
+    left: -55%;
+
+    .button {
+      right: calc(5% - 28px);
+      top: 40px;
+      font-size: 36px;
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  &.isOpen {
+    left: 0;
+    cursor: unset;
+    padding: 20px;
+
+    .button {
+      transform: rotate(45deg);
+      right: calc(5% - 10px);
+    }
+
+    @include desktop {
+      padding: 40px 5%;
+
+      .button {
+        right: calc(5% - 22px);
+      }
+    }
+  }
+}

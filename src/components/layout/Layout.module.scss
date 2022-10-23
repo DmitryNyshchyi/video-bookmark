@@ -1,0 +1,7 @@
+@import "src/styles";
+
+.wrapper {
+  @include flex();
+  min-width: 100%;
+  overflow-x: hidden;
+}

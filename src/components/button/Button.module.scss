@@ -1,0 +1,67 @@
+@import "src/styles";
+
+.button {
+  @include flex(row, center, center);
+  border-radius: 4px;
+  border: 1px solid $primary;
+  color: $primary;
+  background: $white;
+  cursor: pointer;
+
+  & * {
+    transition: $transitionAll03Ease;
+  }
+
+  &:hover {
+    color: $white;
+    background: $primary;
+  }
+
+  &.primary {
+    color: $white;
+    background: $primary;
+
+    &:hover {
+      color: $primary;
+      background: $white;
+    }
+  }
+
+  &.isMobileFullWidth {
+    width: 100%;
+
+    @include tabletAndDesktop {
+      width: auto;
+    }
+  }
+
+  &:disabled,
+  &:disabled:hover {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  &.middle {
+    padding: 10px 25px;
+    font-size: 14px;
+    line-height: 14px;
+  }
+
+  &.small {
+    padding: 5px 15px;
+    font-size: 12px;
+    line-height: 12px;
+  }
+
+  &.text {
+    padding: 2px 4px;
+    border: unset;
+    background: transparent;
+    height: fit-content;
+    color: $lightSecondary;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}

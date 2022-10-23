@@ -1,0 +1,14 @@
+@import "mediaQueries";
+@import "src/styles/variables";
+
+@mixin error() {
+  .error {
+    text-align: right;
+    color: $error;
+    font-size: 12px;
+    padding-right: 15px;
+    line-height: 20px;
+    min-height: 20px;
+    @content;
+  }
+}

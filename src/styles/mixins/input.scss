@@ -1,0 +1,34 @@
+@import "mediaQueries";
+@import "src/styles/variables";
+
+@mixin input() {
+  input, textarea {
+    width: 100%;
+    padding: 8px 15px;
+    border: 1px solid $lightSecondary;
+    color: $secondary;
+    border-radius: 4px;
+    outline: unset;
+    box-sizing: border-box;
+
+    &:focus {
+      border: 1px solid $secondary;
+    }
+
+    &, &::placeholder {
+      font-size: 14px;
+      line-height: 26px;
+    }
+
+    &::placeholder {
+      color: $lightGrey;
+    }
+
+    &:disabled {
+      background: $lightGrey;
+      border: 1px solid $lightGrey;
+    }
+
+    @content;
+  }
+}

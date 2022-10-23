@@ -1,0 +1,32 @@
+@import "src/styles";
+
+.wrapper {
+  @include flex();
+  font-size: 16px;
+  line-height: 22px;
+  color: $lightSecondary;
+  width: 100%;
+  word-break: break-word;
+
+  b {
+    @include flex(row, center, center);
+    color: $white;
+    font-weight: 600;
+    margin-right: 5px;
+    padding: 4px 6px;
+    font-size: 12px;
+    line-height: 1;
+    background: $secondary;
+    border-radius: 4px;
+    word-break: keep-all;
+    height: fit-content;
+  }
+
+  span {
+    margin: 0 5px;
+  }
+
+  button {
+    align-self: center;
+  }
+}

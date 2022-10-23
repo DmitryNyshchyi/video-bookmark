@@ -1,0 +1,14 @@
+@import "src/styles";
+
+.wrapper {
+  @include flex(column);
+  width: 100%;
+
+  &, & * {
+    transition: $transitionAll03Ease;
+  }
+
+  @include error;
+  @include label;
+  @include input;
+}

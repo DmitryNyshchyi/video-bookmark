@@ -1,0 +1,12 @@
+@import "src/styles";
+
+.wrapper {
+  @include flex(column);
+  gap: 10px;
+
+  @include error;
+
+  @include label {
+    padding-bottom: 0;
+  };
+}

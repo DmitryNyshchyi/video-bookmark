@@ -1,0 +1,19 @@
+@import "src/styles";
+
+.wrapper {
+  @include flex();
+  gap: 10px;
+  width: 100%;
+
+  @include input {
+    padding: 0 10px;
+  };
+
+  .time {
+    width: 60px;
+  }
+
+  .description {
+    width: 100%;
+  }
+}

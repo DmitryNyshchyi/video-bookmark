@@ -1,0 +1,12 @@
+@import "mediaQueries";
+@import "src/styles/variables";
+
+@mixin label() {
+  .label, label {
+    color: $lightSecondary;
+    font-size: 14px;
+    padding: 0 0 5px 15px;
+    font-weight: 500;
+    @content;
+  }
+}
