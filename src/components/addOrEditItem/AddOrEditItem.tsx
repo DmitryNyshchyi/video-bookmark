@@ -4,9 +4,17 @@ import React from 'react';
 import * as yup from 'yup';
 
 import { useAppDispatch } from '../../hooks/useAppDispatch';
-import { addItem, VideoItemProps } from '../../redux/slices/videoListSlice';
+import { useAppSelector } from '../../hooks/useAppSelector';
+import { closeSidebar } from '../../redux/slices/layoutSlice';
+import {
+  addItem,
+  clearItemForEditing,
+  updateItem,
+  VideoItemProps,
+  videoListState,
+} from '../../redux/slices/videoListSlice';
 import Heading from '../heading/Heading';
-import AddNewItemForm from './components/AddNewItemForm';
+import AddOrEditItemForm from './components/AddOrEditItemForm';
 
 const validationSchema = yup.object().shape({
   title: yup.string().required('Title is a required'),
@@ -15,8 +23,10 @@ const validationSchema = yup.object().shape({
 
 export type VideoItemValuesProps = VideoItemProps;
 
-const AddNewItem = () => {
+const AddOrEditItem = () => {
   const dispatch = useAppDispatch();
+  const { editVideoItem } = useAppSelector(videoListState);
+  const isEditMode = !!editVideoItem;
 
   const initialValues: VideoItemValuesProps = {
     title: '',
@@ -28,26 +38,32 @@ const AddNewItem = () => {
     values: VideoItemValuesProps,
     { resetForm }: FormikHelpers<VideoItemValuesProps>,
   ) => {
-    dispatch(addItem(values));
+    if (isEditMode) dispatch(clearItemForEditing());
+    dispatch(isEditMode ? updateItem(values) : addItem(values));
+    dispatch(closeSidebar());
     resetForm();
   };
 
   return (
     <section>
       <Heading level="h2" margin="0 0 15px">
-        Add new video bookmark
+        {isEditMode ? 'Edit video bookmark' : ' Add new video bookmark'}
       </Heading>
 
       <Formik
         enableReinitialize
-        initialValues={initialValues}
+        initialValues={{
+          ...initialValues,
+          ...(isEditMode ? editVideoItem : {}),
+        }}
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
+        initialStatus={{ isEditMode }}
       >
-        <AddNewItemForm />
+        <AddOrEditItemForm />
       </Formik>
     </section>
   );
 };
 
-export default AddNewItem;
+export default AddOrEditItem;

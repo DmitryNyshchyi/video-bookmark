@@ -19,6 +19,7 @@ export interface VideoItemProps {
 
 export interface VideoListState {
   videoList: VideoItemProps[];
+  editVideoItem: VideoItemProps | null;
 }
 
 const initialState: VideoListState = {
@@ -42,7 +43,7 @@ const initialState: VideoListState = {
         },
       ],
       description:
-        'Big Buck Bunny tells the story of a giant rabbit with a heart bigger than himself. When one sunny day three rodents rudely harass him, something snaps... ',
+        'Big Buck Bunny tells the story of a giant rabbit with a heart bigger than himself. When one sunny day three rodents rudely harass him, something snaps...',
     },
     {
       id: nanoid(),
@@ -75,9 +76,10 @@ const initialState: VideoListState = {
         },
       ],
       description:
-        'Big Buck Bunny tells the story of a giant rabbit with a heart bigger than himself. When one sunny day three rodents rudely harass him, something snaps... ',
+        'Big Buck Bunny tells the story of a giant rabbit with a heart bigger than himself. When one sunny day three rodents rudely harass him, something snaps...',
     },
   ],
+  editVideoItem: null,
 };
 
 export const videoListSlice = createSlice({
@@ -92,7 +94,7 @@ export const videoListSlice = createSlice({
     },
     updateItem(state, action) {
       const index = state.videoList.findIndex(
-        (item) => item === action.payload.id,
+        ({ id }) => id === action.payload.id,
       );
 
       state.videoList[index] = action.payload;
@@ -102,9 +104,21 @@ export const videoListSlice = createSlice({
         ({ id }) => id !== action.payload,
       );
     },
+    setItemForEditing(state, action) {
+      state.editVideoItem = action.payload;
+    },
+    clearItemForEditing(state) {
+      state.editVideoItem = null;
+    },
   },
 });
 
-export const { addItem, updateItem, removeItemById } = videoListSlice.actions;
+export const {
+  addItem,
+  updateItem,
+  removeItemById,
+  setItemForEditing,
+  clearItemForEditing,
+} = videoListSlice.actions;
 
 export const videoListState = (state: AppState) => state.videoList;

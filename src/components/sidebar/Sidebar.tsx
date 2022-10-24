@@ -9,10 +9,15 @@ import {
   layoutState,
   openSidebar,
 } from '../../redux/slices/layoutSlice';
+import {
+  clearItemForEditing,
+  videoListState,
+} from '../../redux/slices/videoListSlice';
 import classes from './Sidebar.module.scss';
 
 const Sidebar: FC<HTMLAttributes<HTMLElement>> = ({ children }) => {
   const { isSidebarOpen } = useAppSelector(layoutState);
+  const { editVideoItem } = useAppSelector(videoListState);
   const dispatch = useAppDispatch();
   const asideRef = useRef<HTMLElement>(null);
 
@@ -32,6 +37,10 @@ const Sidebar: FC<HTMLAttributes<HTMLElement>> = ({ children }) => {
           if (isSidebarOpen) {
             e.stopPropagation();
             dispatch(closeSidebar());
+
+            if (!!editVideoItem) {
+              dispatch(clearItemForEditing());
+            }
           }
         }}
       >

@@ -4,14 +4,18 @@ import React from 'react';
 import Button from '../../button/Button';
 import Input from '../../input/Input';
 import Textarea from '../../Textarea';
-import { VideoItemValuesProps } from '../AddNewItem';
+import { VideoItemValuesProps } from '../AddOrEditItem';
 import NotesUploader from './notesUploader/NotesUploader';
 import TimeIntervals from './timeIntervals/TimeIntervals';
 import VideoUploader from './videoUploader/VideoUploader';
 
-const AddNewItemForm = () => {
-  const { submitForm, isSubmitting, dirty } =
-    useFormikContext<VideoItemValuesProps>();
+const AddOrEditItemForm = () => {
+  const {
+    submitForm,
+    isSubmitting,
+    dirty,
+    initialStatus: { isEditMode },
+  } = useFormikContext<VideoItemValuesProps>();
 
   return (
     <>
@@ -47,10 +51,10 @@ const AddNewItemForm = () => {
         onClick={submitForm}
         disabled={!dirty || isSubmitting}
       >
-        ADD
+        {isEditMode ? 'SAVE' : 'ADD'}
       </Button>
     </>
   );
 };
 
-export default AddNewItemForm;
+export default AddOrEditItemForm;

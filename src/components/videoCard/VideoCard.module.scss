@@ -17,6 +17,14 @@
     }
   }
 
+  .actions {
+    @include flex(row);
+
+    .editIcon {
+      width: 19px;
+    }
+  }
+
   .rowWrapper {
     @include flex(column);
     gap: 15px;
