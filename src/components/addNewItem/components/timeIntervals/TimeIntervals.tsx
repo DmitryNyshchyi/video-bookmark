@@ -1,9 +1,9 @@
 import { useField } from 'formik';
 import React, { FC } from 'react';
 
-import { TimeIntervalsProps } from '../../redux/slices/videoListSlice';
+import { TimeIntervalsProps } from '../../../../redux/slices/videoListSlice';
 import NewTimeItem from './components/NewTimeItem/NewTimeItem';
-import TimeItem from './components/TimeItem/TimeItem';
+import TimeIntervalsGrid from './components/timeIntervalsGrid/TimeIntervalsGrid';
 import classes from './TimeIntervals.module.scss';
 
 interface TimeIntervalProps {
@@ -26,14 +26,10 @@ const TimeIntervals: FC<TimeIntervalProps> = ({ name, label }) => {
     <div className={classes.wrapper}>
       {label && <div className={classes.label}>{label}</div>}
 
-      {items?.length > 0 &&
-        items.map((item: TimeIntervalsProps) => (
-          <TimeItem
-            key={item.id}
-            handleRemoveTimeItem={handleRemoveTimeItem}
-            {...item}
-          />
-        ))}
+      <TimeIntervalsGrid
+        items={items}
+        handleRemoveTimeItem={handleRemoveTimeItem}
+      />
 
       <NewTimeItem addTimeItem={handleAddTimeItem} />
 

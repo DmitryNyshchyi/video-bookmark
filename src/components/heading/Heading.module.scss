@@ -1,3 +1,29 @@
 @import "src/styles";
 
-@include heading;
+h1.heading {
+  @include heading;
+};
+
+h2.heading {
+  @include heading(40px);
+};
+
+h3.heading {
+  @include heading(36px);
+};
+
+h4.heading {
+  @include heading(28px);
+};
+
+h5.heading {
+  @include heading(24px);
+};
+
+h6.heading {
+  @include heading(22px);
+};
+
+p.heading {
+  @include heading(16px);
+};

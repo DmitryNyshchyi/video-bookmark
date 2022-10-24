@@ -4,9 +4,10 @@ import React from 'react';
 import Button from '../../button/Button';
 import Input from '../../input/Input';
 import Textarea from '../../Textarea';
-import TimeIntervals from '../../timeIntervals/TimeIntervals';
-import VideoUploader from '../../videoUploader/VideoUploader';
 import { VideoItemValuesProps } from '../AddNewItem';
+import NotesUploader from './notesUploader/NotesUploader';
+import TimeIntervals from './timeIntervals/TimeIntervals';
+import VideoUploader from './videoUploader/VideoUploader';
 
 const AddNewItemForm = () => {
   const { submitForm, isSubmitting, dirty } =
@@ -14,6 +15,8 @@ const AddNewItemForm = () => {
 
   return (
     <>
+      <NotesUploader<VideoItemValuesProps> />
+
       <Field
         id="title"
         name="title"

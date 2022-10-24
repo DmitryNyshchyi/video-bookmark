@@ -1,24 +1,27 @@
+@import "flex";
 @import "mediaQueries";
 @import "src/styles/variables";
 
-@mixin heading() {
-  .heading {
-    font-weight: 600;
-    font-size: 22px;
-    line-height: 34px;
-    color: $primary;
-    margin: 0;
+@mixin heading($fontSize: 48) {
+  $lineHeightPoint: 1.5;
+  $mobileSize: $fontSize * .6875;
+  font-weight: 600;
+  font-size: $mobileSize;
+  line-height: $mobileSize * $lineHeightPoint;
+  color: $primary;
+  margin: 0;
+  @include flex(row, center, flex-start, wrap);
 
-    @include tabletAndDesktop {
-      font-size: 26px;
-      line-height: 42px;
-    }
-
-    @include desktop {
-      font-size: 32px;
-      line-height: 48px;
-    }
-
-    @content;
+  @include tabletAndDesktop {
+    $tabletSize: $fontSize * .815;
+    font-size: $tabletSize;
+    line-height: $tabletSize * $lineHeightPoint;
   }
+
+  @include desktop {
+    font-size: $fontSize;
+    line-height: $fontSize * $lineHeightPoint;
+  }
+
+  @content;
 }

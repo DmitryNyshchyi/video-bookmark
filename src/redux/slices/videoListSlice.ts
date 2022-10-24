@@ -31,6 +31,11 @@ const initialState: VideoListState = {
       timeIntervals: [
         {
           id: nanoid(),
+          time: '01:32',
+          description: 'Big Buck Bunny tells the story',
+        },
+        {
+          id: nanoid(),
           time: '03:30',
           description:
             'Big Buck Bunny tells the story of a giant rabbit with a heart bigger than himself',
@@ -48,6 +53,11 @@ const initialState: VideoListState = {
         {
           id: nanoid(),
           time: '00:40',
+          description: 'The first Blender Open Movie from 2006',
+        },
+        {
+          id: nanoid(),
+          time: '00:57',
           description: 'The first Blender Open Movie from 2006',
         },
       ],
@@ -89,7 +99,7 @@ export const videoListSlice = createSlice({
     },
     removeItemById(state, action) {
       state.videoList = state.videoList.filter(
-        (item) => item !== action.payload,
+        ({ id }) => id !== action.payload,
       );
     },
   },

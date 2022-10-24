@@ -8,9 +8,9 @@ import React, {
 } from 'react';
 import { Accept, useDropzone } from 'react-dropzone';
 
-import { megaBytesToBytes } from '../../utils';
-import Input from '../input/Input';
-import VideoPreview from '../VideoPreview';
+import { megaBytesToBytes } from '../../../../utils';
+import Input from '../../../input/Input';
+import VideoPreview from '../../../VideoPreview';
 import classes from './VideoUploader.module.scss';
 
 interface VideoUploaderProps<T> {
@@ -61,7 +61,7 @@ const VideoUploader = <T extends object>({
     }
   }, [files]);
 
-  const onDrop = useCallback((acceptedFiles: any[]) => {
+  const onDrop = useCallback((acceptedFiles: File[]) => {
     acceptedFiles.forEach((file) => {
       const reader = new FileReader();
 

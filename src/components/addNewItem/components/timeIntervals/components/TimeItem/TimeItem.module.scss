@@ -7,6 +7,7 @@
   color: $lightSecondary;
   width: 100%;
   word-break: break-word;
+  margin-bottom: 5px;
 
   b {
     @include flex(row, center, center);
@@ -27,6 +28,10 @@
   }
 
   button {
-    align-self: center;
+    padding: 0;
+
+    img {
+      width: 18px;
+    }
   }
 }

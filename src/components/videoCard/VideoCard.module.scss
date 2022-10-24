@@ -5,12 +5,22 @@
   width: 100%;
   gap: 5px;
 
-  @include desktop {
+  @include tabletAndDesktop {
     gap: 15px;
+  }
+
+  h4, h6 {
+    justify-content: space-between;
+
+    img {
+      width: 20px;
+    }
   }
 
   .rowWrapper {
     @include flex(column);
+    gap: 15px;
+    width: 100%;
 
     p {
       font-size: 14px;
@@ -30,9 +40,23 @@
     @include desktop {
       @include flex(row);
 
-      video {
+      .videoPreview {
         width: 50%;
+
+        &.fullWidth {
+          width: 100%;
+        }
       }
+    }
+  }
+
+  .columnWrapper {
+    @include flex(column);
+    gap: 5px;
+    width: 100%;
+
+    @include tabletAndDesktop {
+      gap: 10px;
     }
   }
 }

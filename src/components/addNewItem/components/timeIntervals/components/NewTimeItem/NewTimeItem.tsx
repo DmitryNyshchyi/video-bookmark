@@ -1,8 +1,8 @@
 import { nanoid } from 'nanoid';
 import React, { FC, useState } from 'react';
 
-import { TimeIntervalsProps } from '../../../../redux/slices/videoListSlice';
-import Button from '../../../button/Button';
+import { TimeIntervalsProps } from '../../../../../../redux/slices/videoListSlice';
+import Button from '../../../../../button/Button';
 import classes from './NewTimeItem.module.scss';
 
 interface NewTimeItemProps {

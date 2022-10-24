@@ -1,0 +1,14 @@
+@import "src/styles";
+
+.wrapper {
+  .label {
+    font-size: 14px;
+    color: $lightGrey;
+    text-align: right;
+    cursor: pointer;
+
+    &:hover {
+      color: $lightSecondary;
+    }
+  }
+}
