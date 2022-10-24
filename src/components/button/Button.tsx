@@ -3,13 +3,13 @@ import React, { ButtonHTMLAttributes, FC } from 'react';
 
 import classes from './Button.module.scss';
 
-interface ButtonProps {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   buttonType?: 'PrimaryReverse' | 'Primary' | 'Text';
   isMobileFullWidth?: boolean;
   size?: 'Small' | 'Middle';
 }
 
-const Button: FC<ButtonProps & ButtonHTMLAttributes<HTMLButtonElement>> = ({
+const Button: FC<ButtonProps> = ({
   children,
   buttonType = 'Primary',
   isMobileFullWidth,

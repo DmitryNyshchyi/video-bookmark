@@ -1,8 +1,7 @@
 import React, { FC } from 'react';
 
-import trashIcon from '../../../../../../assets/trash.svg';
 import { TimeIntervalsProps } from '../../../../../../redux/slices/videoListSlice';
-import Button from '../../../../../button/Button';
+import TrashButton from '../../../../../trashButton/TrashButton';
 import classes from './TimeItem.module.scss';
 
 interface TimeItemProps {
@@ -20,9 +19,7 @@ const TimeItem: FC<TimeItemProps & TimeIntervalsProps> = ({
     &mdash;
     <span>{description}</span>
     {handleRemoveTimeItem && id && (
-      <Button onClick={() => handleRemoveTimeItem(id)} buttonType="Text">
-        <img src={trashIcon} alt="trash" />
-      </Button>
+      <TrashButton onClick={() => handleRemoveTimeItem(id)} iconSize="Small" />
     )}
   </div>
 );

@@ -10,6 +10,7 @@ import { Accept, useDropzone } from 'react-dropzone';
 
 import { megaBytesToBytes } from '../../../../utils';
 import Input from '../../../input/Input';
+import TrashButton from '../../../trashButton/TrashButton';
 import VideoPreview from '../../../VideoPreview';
 import classes from './VideoUploader.module.scss';
 
@@ -55,9 +56,14 @@ const VideoUploader = <T extends object>({
 
   const previewSrc = values[name];
 
+  const updateFileValue = (file: string | ArrayBuffer) => {
+    setFieldValue(name as string, file);
+    setFiles([]);
+  };
+
   useEffect(() => {
     if (files[0]) {
-      setFieldValue(name as string, files[0]);
+      updateFileValue(files[0]);
     }
   }, [files]);
 
@@ -93,6 +99,7 @@ const VideoUploader = <T extends object>({
     <div className={classes.wrapper}>
       <div className={classes.label}>
         You can add a link to the file or upload the file from your PC *
+        {previewSrc && <TrashButton onClick={() => updateFileValue('')} />}
       </div>
 
       {previewSrc ? (
@@ -100,7 +107,9 @@ const VideoUploader = <T extends object>({
       ) : (
         <>
           <Field id={name} name={name} as={Input} placeholder="Enter a link" />
+
           <div className={classes.separator}>or</div>
+
           <div {...getRootProps({ style })}>
             <input {...getInputProps()} />
             <p>Drag 'n' drop some files here, or click to select files</p>

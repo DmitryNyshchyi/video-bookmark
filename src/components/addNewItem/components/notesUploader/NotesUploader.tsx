@@ -24,7 +24,6 @@ const NotesUploader = <T extends object>({
       reader.onload = () => {
         setValues({ ...values, ...JSON.parse(reader.result as string) });
       };
-
       reader.readAsText(file);
     });
   }, []);

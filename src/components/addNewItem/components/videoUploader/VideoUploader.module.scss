@@ -10,10 +10,15 @@
   margin: 5px 0 20px;
 
   .label {
+    @include flex(row, flex-start, space-between);
     color: $lightSecondary;
     font-size: 14px;
     padding: 5px 0 15px;
     font-weight: 500;
+
+    @include tabletAndDesktop {
+      align-items: center;
+    }
   }
 
   .separator {

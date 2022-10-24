@@ -1,0 +1,9 @@
+@import "src/styles";
+
+.icon {
+  width: 20px;
+
+  &.small {
+    width: 18px;
+  }
+}
