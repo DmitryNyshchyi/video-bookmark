@@ -1,8 +1,22 @@
-# Getting Started with Create React App
+# Simple basic video-bookmark app where you can:
+- add new bookmark
+- edit exist bookmark
+- import/export of notes of the bookmark
+
+### Structure
+- **src** - all code
+    - **assets** - static files
+    - **component** - all components
+    - **hooks** - custom hooks
+    - **redux** - store and slices
+    - **styles** - global styles and mixins
+    - **utils** - helper-functions
+
+### Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### Available Scripts
 
 In the project directory, you can run:
 
@@ -33,3 +47,4 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+

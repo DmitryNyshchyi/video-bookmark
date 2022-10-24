@@ -1,8 +1,6 @@
 export const ONE_MB = 1024;
 
-export const megaBytesToBytes = (MB: number) => {
-  return MB * ONE_MB * ONE_MB;
-};
+export const megaBytesToBytes = (MB: number) => MB * ONE_MB * ONE_MB;
 
 export const downloadFile = (link: string, filename = '') => {
   if (link) {
