@@ -36,6 +36,11 @@
       color: $secondary;
     }
 
+    .videoPreview {
+      border: 1px solid $secondary;
+      border-radius: 4px;
+    }
+
     @include tabletAndDesktop {
       gap: 30px;
 
