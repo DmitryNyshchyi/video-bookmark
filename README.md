@@ -3,6 +3,8 @@
 - edit exist bookmark
 - import/export of notes of the bookmark
 
+Demo: https://vermillion-marigold-2cc910.netlify.app/
+
 ### Structure
 - **src** - all code
     - **assets** - static files
